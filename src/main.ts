@@ -5,4 +5,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(3000);
 }
-bootstrap();
+bootstrap().then(() => {
+  console.log("server connected");
+}).catch((e) => {
+  console.log(e);
+});
