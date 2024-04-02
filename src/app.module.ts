@@ -12,6 +12,7 @@ import { inject } from 'vue';
 
 @Module({
   imports: [
+    TypeOrmModule.forFeature([appEntity]),
     ConfigModule.forRoot({
       load: [config],
       isGlobal: true
@@ -41,7 +42,10 @@ import { inject } from 'vue';
       synchronize: true,
       entities: [appEntity],
     }),
-    
+  ],
+  controllers: [AppController],
+  providers: [
+    AppService,
   ],
 })
 export class AppModule { }
